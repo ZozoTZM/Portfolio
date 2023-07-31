@@ -8,20 +8,20 @@ export const projects = [
     link: "https://reactbootcamp.com",
   },
   {
-    title: "React Tracks",
-    subtitle: "React and Python",
+    title: "Remotivate",
+    subtitle: "React and Asp.Net",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+      "Remotivate is a remote work management tool, similar to GitHub and Google Workspace. The main features include tracking projects and tasks, assigning members to them, and creating analytics. The site was developed using React frontend, .Net backend using Entity Framework and Identity Core, and was made by a group of 3.",
     image: "./project-2.gif",
-    link: "https://reactbootcamp.com",
+    link: "https://github.com/Lukacs93/remote-work-management-tool",
   },
   {
-    title: "DevChat",
-    subtitle: "React and Firebase",
+    title: "CoHotel",
+    subtitle: "React and Asp.Net",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
+      "CoHotel is an internal app made to track reservations for a Hotel. It uses React frontend with Asp.Net backend.",
     image: "./project-3.gif",
-    link: "https://reactbootcamp.com",
+    link: "https://github.com/ZozoTZM/CoHotel",
   },
   {
     title: "Epic Todo App",
@@ -36,25 +36,20 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
+      "Zoltán has a solution-focused mindset, never losing sight of the goals he set for himself. Getting things done on time is a must for him, because he balances his academic and his Codecooler life simultaneously. His perseverance is commendable.",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
-    name: "Jesse Hicks",
-    company: "Zoozle",
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/94.jpg",
-    name: "Ruben Alvarez",
-    company: "Dooble.io",
+    name: "Kornél Regius",
+    company: "Codecool",
   },
 ];
 
 export const skills = [
   "JavaScript",
   "React",
-  "Next.js",
-  "Node",
-  "GraphQL",
-  "Material UI",
+  "C#",
+  "Node JS",
+  "SQL",
+  "Docker",
+  "MongoDB",
+  "ASP.NET Core"
 ];
