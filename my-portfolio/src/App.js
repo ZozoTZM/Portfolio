@@ -1,35 +1,63 @@
-import React from "react";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Testimonials from "./components/Testimonials";
-import CVPage from "./components/CVPage";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './sections/navbar/Navbar';
+import Header from './sections/header/Header';
+import About from './sections/about/About';
+import Portfolio from './sections/portfolio/Portfolio';
+import Testimonials from './sections/testimonials/Testimonials';
+import Contact from './sections/contact/Contact';
+import Footer from './sections/footer/Footer';
+import FloatingNav from './sections/floating-nav/FloatingNav';
+import Theme from './theme/Theme';
+import { useThemeContext } from './context/theme-context';
+import {useRef, useState, useEffect} from 'react'
 
+const App = () => {
+  const {themeState} = useThemeContext();
 
-export default function App() {
+  const mainRef = useRef();
+  const [showFloatingNav, setShowFloatingNav] = useState(true);
+  const [siteYPostion, setSiteYPosition] = useState(0)
+
+  const showFloatingNavHandler = () => {
+    setShowFloatingNav(true);
+  }
+
+  const hideFloatingNavHandler = () => {
+    setShowFloatingNav(false);
+  }
+
+  // check if floating nav should be shown or hidden
+  const floatingNavToggleHandler = () => {
+    // check if we scrolled up or down at least 20px
+    if(siteYPostion < (mainRef?.current?.getBoundingClientRect().y - 20) || siteYPostion > (mainRef?.current?.getBoundingClientRect().y + 20)) {
+      showFloatingNavHandler();
+    } else {
+      hideFloatingNavHandler();
+    }
+
+    setSiteYPosition(mainRef?.current?.getBoundingClientRect().y);
+  }
+
+  useEffect(() => {
+    const checkYPosition = setInterval(floatingNavToggleHandler, 2000);
+
+    // cleanup function
+    return () => clearInterval(checkYPosition);
+  }, [siteYPostion])
+
+  
+
   return (
-    <Router>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/CV" element={<CVPage />} />
-        </Routes>
-      </main>
-    </Router>
-  );
+    <main className={`${themeState.primary} ${themeState.background}`} ref={mainRef}>
+        <Navbar/>
+        <Header/>
+        <About/>       
+        <Portfolio/>
+        <Testimonials/>        
+        <Contact/>
+        <Footer/>     
+        {showFloatingNav && <FloatingNav/>}
+    </main>
+  )
 }
-function Home() {
-  return (
-    <div>
-      <Navbar />
-      <About />
-      <Projects />
-      <Skills />
-      <Testimonials />
-      <Contact />
-    </div>
-  );
-}
+
+export default App
